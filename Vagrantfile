@@ -33,13 +33,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configure sync directory
   config.vm.synced_folder ".", home_dir + "/islandora"
 
-  config.vm.network :forwarded_port, guest: 8000, host: 8000 # Apache
-  config.vm.network :forwarded_port, guest: 8080, host: 8080 # Tomcat
-  config.vm.network :forwarded_port, guest: 3306, host: 3306 # MySQL
-  config.vm.network :forwarded_port, guest: 5432, host: 5432 # PostgreSQL
-  config.vm.network :forwarded_port, guest: 8983, host: 8983 # Solr
-  config.vm.network :forwarded_port, guest: 8161, host: 8161 # Activemq
-  config.vm.network :forwarded_port, guest: 8081, host: 8081 # API-X
+  config.vm.network :forwarded_port, guest: 8000, host: 8000, auto_correct: true # Apache
+  config.vm.network :forwarded_port, guest: 8080, host: 8080, auto_correct: true # Tomcat
+  config.vm.network :forwarded_port, guest: 3306, host: 3306, auto_correct: true # MySQL
+  config.vm.network :forwarded_port, guest: 5432, host: 5432, auto_correct: true # PostgreSQL
+  config.vm.network :forwarded_port, guest: 8983, host: 8983, auto_correct: true # Solr
+  config.vm.network :forwarded_port, guest: 8161, host: 8161, auto_correct: true # Activemq
+  config.vm.network :forwarded_port, guest: 8081, host: 8081, auto_correct: true # API-X
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", $memory]
